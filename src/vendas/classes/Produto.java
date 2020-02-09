@@ -3,8 +3,17 @@ package vendas.classes;
 public abstract class Produto {
 	private int id;
 	private String nome;
-	private double preco;
-
+	private double valor;
+	
+	public Produto() {
+	}
+	
+	public Produto(int id, String nome, double valor) {
+		this.id = id;
+		this.nome = nome;
+		this.valor = valor;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -21,16 +30,16 @@ public abstract class Produto {
 		this.nome = nome;
 	}
 	
-	public double getPreco() {
-		return preco;
+	public double getValor() {
+		return valor;
 	}
 	
-	public void setPreco(double preco) {
-		this.preco = preco;
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 	
 	@Override
 	public String toString() {
-		return String.format("produto: %s - preço: %f", this.getNome(), this.getPreco());
+		return String.format("produto: %s - preço: %f", this.getNome(), this.getValor());
 	}
 }

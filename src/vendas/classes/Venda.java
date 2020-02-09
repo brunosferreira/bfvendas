@@ -9,7 +9,7 @@ public class Venda {
 	private double totalItens;
 	private List<ItemVenda> itensVenda;
 	
-	public Venda() {
+	public Venda(int id) {
 		this.itensVenda = new ArrayList<ItemVenda>();
 	}
 	
@@ -23,7 +23,7 @@ public class Venda {
 	
 	public double getValorTotal() {
 		for (ItemVenda item: itensVenda) {
-			this.valorTotal += item.getValor();
+			this.valorTotal += item.getValorItem();
 		}
 		return this.valorTotal;
 	}

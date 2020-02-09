@@ -3,6 +3,7 @@ package vendas.classes;
 public class ItemVenda {
 	private int id;
 	private Produto produto;
+	private double valorVenda;
 	private double quantidade;
 	
 	public ItemVenda() {
@@ -12,6 +13,7 @@ public class ItemVenda {
 	public ItemVenda(int id, Produto produto, double quantidade) {
 		this.id = id;
 		this.produto = produto;
+		this.valorVenda = produto.getValor();
 		this.quantidade = quantidade;
 	}
 	
@@ -29,6 +31,7 @@ public class ItemVenda {
 	
 	public void setProduto(Produto produto) {
 		this.produto = produto;
+		this.valorVenda = this.produto.getValor();
 	}
 	
 	public double getQuantidade() {
@@ -39,13 +42,13 @@ public class ItemVenda {
 		this.quantidade = quantidade;
 	}
 	
-	public double getValor() {
-		return this.quantidade * this.produto.getPreco();
+	public double getValorItem() {
+		return this.quantidade * this.valorVenda;
 	}
 	
 	@Override
 	public String toString() {
 		return String.format("produto: %s, preço: %f, quantidade: %f, total: %f",
-				this.produto.getNome(), this.produto.getPreco(), this.quantidade, this.getValor());
+				this.produto.getNome(), this.valorVenda, this.quantidade, this.getValorItem());
 	}
 }
